@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
@@ -38,6 +39,8 @@ public class Mapa extends AppCompatActivity {
 
     private void setUpMap() {
         mMap.addMarker(new MarkerOptions().position(new LatLng(Double.parseDouble(bundle.getString("lat")), Double.parseDouble(bundle.getString("lng")))).title(bundle.getString("name")));
+        //mMap.getCameraPosition().target;
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(Double.parseDouble(bundle.getString("lat")), Double.parseDouble(bundle.getString("lng"))), 7));
     }
 
     @Override
